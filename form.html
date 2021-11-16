@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <link rel="stylesheet" href="./form.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/DesignSystemsOSS/eccentrictouch@master/source/eccentrictouch.css" /> -->
+</head>
+<body class="body">
+    
+    <!-- form validation -->
+    <aside>
+       <img src="../formm.webp" alt="" height="70px">
+    </aside>
+<form  method="post" name="f1"  onsubmit =  "return validatefun()">
+    <h1>Form Validation</h1>
+    <input style="margin: 15px;"  type="text" name="yoname" id="id" placeholder="Enter your name" size="20"><br>
+    <input style="margin: 15px;"  type="text" name="email" id="id" placeholder="Enter your email" size="20"><br>
+    <input style="margin: 15px;" type="password" name="cpwd" id="id" placeholder = "Enter password"><br>
+    <input style="margin: 15px;" type="password" name="rpwd" id="id" placeholder = "Retype password"><br>
+    <input style="margin: 15px;" type="number" name="num" id="id"  placeholder = "Enter number"><br>
+<select style="margin: 15px;" class="outline-btn" name="sel" id="id" >
+
+    <option value="">Select a language</option>
+    <option value="Html">Html</option>
+    <option value="Css">Css</option>
+    <option value="Javascript">Javascript</option>
+    
+</select><br>
+    <input style="margin: 15px;" id="sub" onclick="okay()" class="primary-btn" type="submit" value="Submit">
+    <input style="margin: 15px;" id="sub" class="outline-btn" type="reset" value="Reset"><br>
+</form>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyLJhUSEUl2eJxMn4r6yaW5dDk1_QlSwHLa25PgKlGfFLjn4mcWG-ygCHkoUKl6WvwP/exec'
+    const form = document.forms['f1']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+<script src="./form.js"></script>
+</html>
